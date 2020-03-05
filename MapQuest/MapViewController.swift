@@ -68,26 +68,59 @@ class MapViewController: UIViewController {
       let endField = alert?.textFields![1]
       self.routeStart = startField!.text
       self.routeEnd = endField!.text
-      self.cordStart = self.returnLocationFromString(location: self.routeStart!)
-      self.cordEnd = self.returnLocationFromString(location: self.routeEnd!)
-      request.source = MKMapItem(placemark: MKPlacemark(coordinate: self.cordStart!,addressDictionary: nil))
-      request.destination = MKMapItem(placemark: MKPlacemark(coordinate: self.cordStart!,addressDictionary: nil))
+      //self.cordStart = self.returnLocationFromString(location: self.routeStart!)
+      //self.cordEnd = self.returnLocationFromString(location: self.routeEnd!)
+      let start = CLLocationCoordinate2D(latitude: 41.924906, longitude: -87.656732)
+      let end = CLLocationCoordinate2D(latitude: 41.910332, longitude: -87.672689)
+      
+      let sourcePlacemark = MKPlacemark(coordinate: start, addressDictionary: nil)
+      let desPlacemark = MKPlacemark(coordinate: end,addressDictionary: nil)
+      
+      
+      let sourceMap = MKMapItem(placemark: sourcePlacemark)
+      let desMap = MKMapItem(placemark: desPlacemark)
+      request.source = sourceMap
+      request.destination = desMap
       request.requestsAlternateRoutes = true
       request.transportType = .walking
       
-      let directions = MKDirections(request: request)
-
-      directions.calculate { [unowned self] response, error in
-          guard let unwrappedResponse = response else { return }
-
-          for route in unwrappedResponse.routes {
-              self.mapView.addOverlay(route.polyline)
-              self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-          }
-      }
-
+      let sourceAnn = MKPointAnnotation()
       
-    }))
+      if let location = sourcePlacemark.location
+      {
+        sourceAnn.coordinate = location.coordinate
+      }
+      
+      let desAnn = MKPointAnnotation()
+      
+      if let location = desPlacemark.location
+      {
+        desAnn.coordinate = location.coordinate
+      }
+      
+      self.mapView.showAnnotations([sourceAnn,desAnn], animated: true)
+      
+      let directions = MKDirections(request: request)
+      
+      
+      // 8.
+      directions.calculate {
+                 (response, error) -> Void in
+                 
+                 guard let response = response else {
+                     if let error = error {
+                         print("Error: \(error)")
+                     }
+                     
+                     return
+                 }
+                 
+                 let route = response.routes[0]
+        self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+      }
+      }))
+
+    
 
     
     // 4. Present the alert.
