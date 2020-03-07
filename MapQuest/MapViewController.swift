@@ -70,6 +70,7 @@ class MapViewController: UIViewController {
       self.routeEnd = endField!.text
       //self.cordStart = self.returnLocationFromString(location: self.routeStart!)
       //self.cordEnd = self.returnLocationFromString(location: self.routeEnd!)
+      
       let start = CLLocationCoordinate2D(latitude: 41.924906, longitude: -87.656732)
       let end = CLLocationCoordinate2D(latitude: 41.910332, longitude: -87.672689)
       
