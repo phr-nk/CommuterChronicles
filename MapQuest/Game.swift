@@ -72,6 +72,7 @@ class Game {
     pointsOfInterest = [  PointOfInterest(name: "The Bone Zone", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "storesmall")),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster")),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))]
+    
   }
 
   private func setupWarps() {
@@ -99,6 +100,7 @@ class Game {
     ]
   }
 
+  
   private func setupResevoir() {
     reservoir = [
       CLLocationCoordinate2D(latitude: 40.78884, longitude: -73.95857),
@@ -161,6 +163,16 @@ class Game {
     ]
   }
 
+  func genRandomLat(lat: CLLocationDegrees, lat2: CLLocationDegrees) -> CLLocationDegrees
+  {
+    let randomLat = Double.random(in: lat ..< lat2)
+    return randomLat
+  }
+  func genRandomLong(long:CLLocationDegrees, long2: CLLocationDegrees) -> CLLocationDegrees
+  {
+    let randomLong = Double.random(in: long ..< long2)
+    return randomLong
+  }
   func visitedLocation(location: CLLocation) {
     guard let currentPOI = poiAtLocation(location: location) else { return }
 

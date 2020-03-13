@@ -157,6 +157,7 @@ class MapViewController: UIViewController {
                 completion(location)
             }
   }
+  
   func returnLocationFromString(location:String) ->CLLocationCoordinate2D  {
     var cord:CLLocationCoordinate2D?
     getCoordinate(forPlaceCalled: location ){ location  in
@@ -196,7 +197,7 @@ extension MapViewController: MKMapViewDelegate {
       let view = mapView.dequeueReusableAnnotationView(withIdentifier: "user")
         ?? MKAnnotationView(annotation: user, reuseIdentifier: "user")
       
-      view.image = #imageLiteral(resourceName: "wizard")
+      view.image = userimage
       return view
       
     case let warp as WarpZone:

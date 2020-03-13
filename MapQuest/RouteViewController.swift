@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 var cords :[CLLocationCoordinate2D] = []
+var userimage: UIImage?
 var cordss : String = ""
 
 
@@ -24,29 +25,45 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var endText: UILabel!
     @IBOutlet weak var startLabel: UILabel!
     
-    @IBOutlet weak var locationText: UITextView!
-  
+ 
+    @IBOutlet weak var sprite1: UILabel!
+    @IBOutlet weak var sprite2: UILabel!
+    @IBOutlet weak var sprite3: UILabel!
+    
     var i:Int = 0
  
     override func viewDidLoad() {
         super.viewDidLoad()
         endText.isHidden = true
+        sprite1.isHidden = false
+        sprite2.isHidden = true
+        sprite3.isHidden = true
+        userimage = UIImage(named: "wizard")
+        
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func sprite1Selected(_ sender: UIButton) {
+        sprite1.isHidden = false
+        sprite2.isHidden = true
+        sprite3.isHidden = true
+        userimage = UIImage(named: "wizard")
+    }
+    @IBAction func sprite2Selected(_ sender: UIButton) {
+        sprite1.isHidden = true
+        sprite2.isHidden = false
+        sprite3.isHidden = true
+        userimage = UIImage(named: "priest")
+        
+    }
+    @IBAction func sprite3Selected(_ sender: UIButton) {
+        sprite1.isHidden = true
+        sprite2.isHidden = true
+        sprite3.isHidden = false
+      userimage = UIImage(named: "rouge")
+    }
     @IBAction func transformAddress(_ sender: UIButton) {
        guard let start = startText.text else {return}
-       if(self.i == 2)
-       {
-        self.startText.isHidden = true
-        self.startText.resignFirstResponder()
-        self.enterButton.setTitle("Contiune", for: .normal)
-        print(cords)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "NavView")
-        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true, completion: nil)
-       }
         self.i += 1
         startLabel.isHidden = true
         endText.isHidden = false
@@ -65,7 +82,6 @@ class RouteViewController: UIViewController {
 
         if let error = error {
                   print("Unable to Forward Geocode Address (\(error))")
-            self.locationText.text = "Unable to Find Location for Address"
 
               } else {
                   var location: CLLocation?
@@ -75,13 +91,23 @@ class RouteViewController: UIViewController {
                   }
 
                   if let location = location {
+                    if(self.i == 2)
+                    {
+                           self.startText.isHidden = true
+                           self.startText.resignFirstResponder()
+                           self.enterButton.setTitle("Contiune", for: .normal)
+                           print(cords)
+                           let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                           let controller = storyboard.instantiateViewController(withIdentifier: "NavView")
+                           controller.modalPresentationStyle = .fullScreen
+                           self.present(controller, animated: true, completion: nil)
+                    }
                     let coordinate = location.coordinate
-                    self.locationText.text! += "\(coordinate.latitude), \(coordinate.longitude) \n"
                     cords.append(coordinate)
                     cordss += "\(coordinate)"
                     //print(cords)
                   } else {
-                    self.locationText.text = "No Matching Location Found"
+                    print("No Matching Location Found")
                   }
               }
         
