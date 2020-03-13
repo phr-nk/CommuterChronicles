@@ -55,17 +55,9 @@ class PointOfInterest: NSObject  {
 
 
 extension PointOfInterest {
-  static let AppleStore = PointOfInterest(name: "\"Fruit\" Store", location: CLLocation(latitude: 40.763560, longitude: -73.972321), isRegenPoint: true, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "goblin"))
-
-  static let Castle = PointOfInterest(name: "Castle", location: CLLocation(latitude: 40.7794379, longitude: -73.9712102), isRegenPoint: false, encounter: NPC.King,image:#imageLiteral(resourceName: "king"))
- 
-  static let Met = PointOfInterest(name: "Art Palace", location: CLLocation(latitude: 40.7790478, longitude: -73.96627832), isRegenPoint: false,image:#imageLiteral(resourceName: "store"))
-  static let Obelisk = PointOfInterest(name: "Obelisk", location: CLLocation(latitude: 40.7796328, longitude: -73.9676018), isRegenPoint: false,image:#imageLiteral(resourceName: "store"))
-  static let StatueOfLiberty = PointOfInterest(name: "Colossus", location: CLLocation(latitude: 40.6892534, longitude: -74.0466891), isRegenPoint: false,image:#imageLiteral(resourceName: "store"))
-  static let Zoo = PointOfInterest(name: "Monster Menagerie", location: CLLocation(latitude: 40.767769, longitude: -73.971870), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "goblin"))
-  static let depaulLib = PointOfInterest(name: "The Bone Zone", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "goblin"))
-  static let LBLZ = PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "goblin"))
-    static let SAC = PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "goblin"))
+  static let depaulLib = PointOfInterest(name: "The Bone Zone", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "storesmall"))
+  static let LBLZ = PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))
+    static let SAC = PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))
   
   
   

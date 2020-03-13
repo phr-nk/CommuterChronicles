@@ -49,30 +49,13 @@ class MapViewController: UIViewController {
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    print(cordss)
+    
     let request = MKDirections.Request()
-    //
-   //1. Create the alert controller.
-    let alert = UIAlertController(title: "Enter Start and End Location", message: "", preferredStyle: .alert)
-
-    //2. Add the text field.
-    alert.addTextField { (startField) in
-        startField.text = ""
-    }
-    alert.addTextField { (endField) in
-        endField.text = ""
-    }
-
-    // 3. Grab the value from the text fields
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-      let startField = alert?.textFields![0]
-      let endField = alert?.textFields![1]
-      self.routeStart = startField!.text
-      self.routeEnd = endField!.text
-      //self.cordStart = self.returnLocationFromString(location: self.routeStart!)
-      //self.cordEnd = self.returnLocationFromString(location: self.routeEnd!)
-      
-      let start = CLLocationCoordinate2D(latitude: 41.924906, longitude: -87.656732)
-      let end = CLLocationCoordinate2D(latitude: 41.910332, longitude: -87.672689)
+    
+    
+      let start = cords[0]
+      let end = cords[1]
       
       let sourcePlacemark = MKPlacemark(coordinate: start, addressDictionary: nil)
       let desPlacemark = MKPlacemark(coordinate: end,addressDictionary: nil)
@@ -119,13 +102,6 @@ class MapViewController: UIViewController {
                  let route = response.routes[0]
         self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
       }
-      }))
-
-    
-
-    
-    // 4. Present the alert.
-    self.present(alert, animated: true, completion: nil)
 
   
     
@@ -133,7 +109,6 @@ class MapViewController: UIViewController {
     mapView.addAnnotations(Game.shared.pointsOfInterest)
     //mapView.addAnnotation(addRoute())
 
-    mapView.mapType = MKMapType.init(rawValue: UInt(3)) ?? .standard
 
     let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.774669555422349, longitude: -73.964170794293238),
                                            span: MKCoordinateSpan(latitudeDelta: 0.16405544070813249, longitudeDelta: 0.1232528799585566))
@@ -155,11 +130,6 @@ class MapViewController: UIViewController {
   }
 
 
-  func createWarp(lat: CLLocationDegrees, long:CLLocationDegrees)
-  {
-    let warp = WarpZone(latitude: lat, longitude: long, color:#colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1) )
-    Game.shared.warps.append(warp)
-  }
   //get corrdinate from user text: Frank Code
   func getCoordinate( forPlaceCalled name : String,
           completion: @escaping(CLLocation?) -> Void ) {
@@ -226,7 +196,7 @@ extension MapViewController: MKMapViewDelegate {
       let view = mapView.dequeueReusableAnnotationView(withIdentifier: "user")
         ?? MKAnnotationView(annotation: user, reuseIdentifier: "user")
       
-      view.image = #imageLiteral(resourceName: "user")
+      view.image = #imageLiteral(resourceName: "wizard")
       return view
       
     case let warp as WarpZone:

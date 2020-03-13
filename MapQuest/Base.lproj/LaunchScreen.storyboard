@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,36 +18,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rwdevcon-bg" translatesAutoresizingMaskIntoConstraints="NO" id="F7V-Kn-LNI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rw-logo" translatesAutoresizingMaskIntoConstraints="NO" id="aQA-5u-Qey">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commuter-chronicles-scaled" translatesAutoresizingMaskIntoConstraints="NO" id="aQA-5u-Qey">
                                 <rect key="frame" x="0.0" y="146" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aQA-5u-Qey" secondAttribute="height" multiplier="1:1" id="itM-Fn-Brl"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1j-fv-Kan">
+                                <rect key="frame" x="0.0" y="-14" width="375" height="166"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commuter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-SB-tEB">
+                                        <rect key="frame" x="94" y="45" width="186" height="49"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="45"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chronicles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puq-tH-HjS">
+                                        <rect key="frame" x="94" y="102" width="184" height="48"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="44"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71969705819999996" green="0.89707809689999995" blue="0.98505133389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="puq-tH-HjS" secondAttribute="bottom" constant="16" id="0td-XK-Gtm"/>
+                                    <constraint firstAttribute="height" constant="166" id="AcU-M7-nC3"/>
+                                    <constraint firstItem="puq-tH-HjS" firstAttribute="top" secondItem="Jbb-SB-tEB" secondAttribute="bottom" constant="8" symbolic="YES" id="I9C-Mv-df1"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="puq-tH-HjS" secondAttribute="trailing" constant="20" symbolic="YES" id="PYI-wn-RZP"/>
+                                    <constraint firstItem="puq-tH-HjS" firstAttribute="leading" secondItem="B1j-fv-Kan" secondAttribute="leading" constant="94" id="Q2W-kc-fEc"/>
+                                    <constraint firstAttribute="width" constant="375" id="Tf4-qD-Z2S"/>
+                                    <constraint firstItem="puq-tH-HjS" firstAttribute="leading" secondItem="Jbb-SB-tEB" secondAttribute="leading" id="dxx-ME-Ihi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jbb-SB-tEB" secondAttribute="trailing" constant="20" symbolic="YES" id="fQc-1V-yxp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orM-0U-Fbb">
+                                <rect key="frame" x="0.0" y="516" width="375" height="169"/>
+                                <color key="backgroundColor" red="0.59601163859999995" green="0.59611696000000003" blue="0.59600502249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="F7V-Kn-LNI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="2sg-Ma-BaI"/>
-                            <constraint firstAttribute="bottom" secondItem="F7V-Kn-LNI" secondAttribute="bottom" id="CZt-Sq-6lT"/>
+                            <constraint firstItem="B1j-fv-Kan" firstAttribute="leading" secondItem="orM-0U-Fbb" secondAttribute="leading" id="3AB-5H-2br"/>
                             <constraint firstItem="aQA-5u-Qey" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IWN-a2-48D"/>
-                            <constraint firstAttribute="trailing" secondItem="F7V-Kn-LNI" secondAttribute="trailing" id="LXp-lU-2lE"/>
+                            <constraint firstItem="B1j-fv-Kan" firstAttribute="leading" secondItem="aQA-5u-Qey" secondAttribute="leading" id="O2a-G3-evs"/>
                             <constraint firstItem="aQA-5u-Qey" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="S1S-UR-yu5"/>
+                            <constraint firstItem="B1j-fv-Kan" firstAttribute="trailing" secondItem="orM-0U-Fbb" secondAttribute="trailing" id="Sgp-wc-RLL"/>
                             <constraint firstItem="aQA-5u-Qey" firstAttribute="width" secondItem="aQA-5u-Qey" secondAttribute="height" multiplier="1:1" id="VHa-wr-ih5"/>
+                            <constraint firstItem="orM-0U-Fbb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="516" id="b8b-zh-fWy"/>
                             <constraint firstItem="aQA-5u-Qey" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="ekG-vv-Yk7"/>
-                            <constraint firstItem="F7V-Kn-LNI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="nfV-ed-lnY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="orM-0U-Fbb" secondAttribute="bottom" constant="-18" id="hiU-h8-lYu"/>
+                            <constraint firstItem="B1j-fv-Kan" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-14" id="xg5-Jm-h6r"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="l3Z-PS-eBw">
+            <objects>
+                <viewController id="xoe-aH-xc8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uu3-Q8-ER5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lht-3y-Yzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="792"/>
         </scene>
     </scenes>
     <resources>
-        <image name="rw-logo" width="512" height="512"/>
-        <image name="rwdevcon-bg" width="1104" height="1104"/>
+        <image name="commuter-chronicles-scaled" width="1280" height="1000"/>
     </resources>
 </document>

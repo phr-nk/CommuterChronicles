@@ -58,7 +58,6 @@ class Game {
   var lastPOI: PointOfInterest?
   var warps: [WarpZone] = []
   var reservoir: [CLLocationCoordinate2D] = []
-
   weak var delegate: GameDelegate?
 
   // MARK: - Initializers
@@ -70,7 +69,9 @@ class Game {
   }
 
   private func setupPOIs() {
-    pointsOfInterest = [.AppleStore, .Obelisk, .Met, .StatueOfLiberty, .depaulLib,.SAC,.LBLZ]
+    pointsOfInterest = [  PointOfInterest(name: "The Bone Zone", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "storesmall")),
+                          PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster")),
+                          PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))]
   }
 
   private func setupWarps() {

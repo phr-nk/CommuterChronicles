@@ -40,7 +40,7 @@ class HeroViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    avatarImageView.image = #imageLiteral(resourceName: "adventurer")
+    avatarImageView.image = #imageLiteral(resourceName: "wizard")
   }
 }
 

@@ -13,8 +13,6 @@
 		0A16ACF31E96EDAD00347DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A16ACF11E96EDAD00347DCE /* LaunchScreen.storyboard */; };
 		0A16AD171E96EDC100347DCE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16AD161E96EDC100347DCE /* MapViewController.swift */; };
 		0A16AD1A1E96EDF500347DCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A16AD191E96EDF500347DCE /* MapKit.framework */; };
-		0A16AD441E9E57F700347DCE /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = 0A16AD431E9E57F700347DCE /* tiles */; };
-		0A16AD461E9E582500347DCE /* AdventureMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16AD451E9E582500347DCE /* AdventureMapOverlay.swift */; };
 		0A16AD481E9E5BA800347DCE /* Adventurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16AD471E9E5BA800347DCE /* Adventurer.swift */; };
 		0A16AD4A1E9E5BCA00347DCE /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16AD491E9E5BCA00347DCE /* Monster.swift */; };
 		0A16AD4C1E9E5C6E00347DCE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16AD4B1E9E5C6E00347DCE /* Game.swift */; };
@@ -31,7 +29,6 @@
 		0AF3474F1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */; };
 		0AF347541EA6F8010019ED94 /* WarpZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF347531EA6F8010019ED94 /* WarpZone.swift */; };
 		6FAEED022411D2C000E2DEF3 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAEED012411D2C000E2DEF3 /* RouteViewController.swift */; };
-		6FC419D12405F2E700D63724 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FC419D02405F2E700D63724 /* Default-568h@2x.png */; };
 		6FF5C34D24101F870005082C /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5C34C24101F870005082C /* Route.swift */; };
 		6FF5C34F24103F220005082C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5C34E24103F220005082C /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -45,8 +42,6 @@
 		0A16ACF41E96EDAD00347DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A16AD161E96EDC100347DCE /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0A16AD191E96EDF500347DCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0A16AD431E9E57F700347DCE /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tiles; sourceTree = "<group>"; };
-		0A16AD451E9E582500347DCE /* AdventureMapOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureMapOverlay.swift; sourceTree = "<group>"; };
 		0A16AD471E9E5BA800347DCE /* Adventurer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adventurer.swift; sourceTree = "<group>"; };
 		0A16AD491E9E5BCA00347DCE /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		0A16AD4B1E9E5C6E00347DCE /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -61,10 +56,8 @@
 		0A76AC711EB223310091053A /* NPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPC.swift; sourceTree = "<group>"; };
 		0AF3474C1EA5691B0019ED94 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PointOfInterest+MapKit.swift"; sourceTree = "<group>"; };
-		0AF347501EA68D170019ED94 /* Game Test.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Game Test.gpx"; sourceTree = "<group>"; };
 		0AF347531EA6F8010019ED94 /* WarpZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpZone.swift; sourceTree = "<group>"; };
 		6FAEED012411D2C000E2DEF3 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
-		6FC419D02405F2E700D63724 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6FF5C34C24101F870005082C /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		6FF5C34E24103F220005082C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +77,6 @@
 		0A16ACDC1E96EDAD00347DCE = {
 			isa = PBXGroup;
 			children = (
-				6FC419D02405F2E700D63724 /* Default-568h@2x.png */,
 				0A16ACE71E96EDAD00347DCE /* MapQuest */,
 				0A16ACE61E96EDAD00347DCE /* Products */,
 				0A16AD181E96EDF500347DCE /* Frameworks */,
@@ -109,18 +101,15 @@
 				0A16AD4F1E9E600C00347DCE /* LocationListener.swift */,
 				0A16AD161E96EDC100347DCE /* MapViewController.swift */,
 				6FF5C34E24103F220005082C /* LocationManager.swift */,
-				0A16AD451E9E582500347DCE /* AdventureMapOverlay.swift */,
 				0A4D70121EA51BE70098C0A7 /* HeroViewController.swift */,
 				0AF3474C1EA5691B0019ED94 /* ShopViewController.swift */,
 				0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */,
 				0AF347531EA6F8010019ED94 /* WarpZone.swift */,
 				0AF3474A1EA54A1C0019ED94 /* Game Code */,
 				0A16ACEC1E96EDAD00347DCE /* Main.storyboard */,
-				0AF3474B1EA54A260019ED94 /* Test Code */,
 				0A16ACEF1E96EDAD00347DCE /* Assets.xcassets */,
 				0A16ACF11E96EDAD00347DCE /* LaunchScreen.storyboard */,
 				0A4D70091EA300D10098C0A7 /* 3p */,
-				0A16AD431E9E57F700347DCE /* tiles */,
 				0A16ACF41E96EDAD00347DCE /* Info.plist */,
 			);
 			path = MapQuest;
@@ -157,14 +146,6 @@
 				0A4D70101EA517760098C0A7 /* Weapon.swift */,
 			);
 			name = "Game Code";
-			sourceTree = "<group>";
-		};
-		0AF3474B1EA54A260019ED94 /* Test Code */ = {
-			isa = PBXGroup;
-			children = (
-				0AF347501EA68D170019ED94 /* Game Test.gpx */,
-			);
-			name = "Test Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,8 +216,6 @@
 			files = (
 				0A16ACF31E96EDAD00347DCE /* LaunchScreen.storyboard in Resources */,
 				0A16ACF01E96EDAD00347DCE /* Assets.xcassets in Resources */,
-				0A16AD441E9E57F700347DCE /* tiles in Resources */,
-				6FC419D12405F2E700D63724 /* Default-568h@2x.png in Resources */,
 				0A16ACEE1E96EDAD00347DCE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +243,6 @@
 				0A16ACE91E96EDAD00347DCE /* AppDelegate.swift in Sources */,
 				6FF5C34D24101F870005082C /* Route.swift in Sources */,
 				0A4D70131EA51BE70098C0A7 /* HeroViewController.swift in Sources */,
-				0A16AD461E9E582500347DCE /* AdventureMapOverlay.swift in Sources */,
 				0AF3474D1EA5691B0019ED94 /* ShopViewController.swift in Sources */,
 				0A4D70081EA300CE0098C0A7 /* AABlurAlertController.swift in Sources */,
 				0A16AD481E9E5BA800347DCE /* Adventurer.swift in Sources */,

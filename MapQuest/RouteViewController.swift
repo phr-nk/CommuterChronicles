@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreLocation
+var cords :[CLLocationCoordinate2D] = []
+var cordss : String = ""
+
 
 class RouteViewController: UIViewController {
     lazy var geocoder = CLGeocoder()
@@ -24,7 +27,7 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var locationText: UITextView!
   
     var i:Int = 0
-    var cords :[CLLocationCoordinate2D] = []
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         endText.isHidden = true
@@ -32,15 +35,13 @@ class RouteViewController: UIViewController {
     }
     
     @IBAction func transformAddress(_ sender: UIButton) {
-        guard let start = startText.text else {return}
-       if(self.i == 1)
+       guard let start = startText.text else {return}
+       if(self.i == 2)
        {
-           self.startText.text = ""
-           self.startText.resignFirstResponder()
-           geocoder.geocodeAddressString(start) { (placemarks, error) in
-               // Process Response
-               self.processResponse(withPlacemarks: placemarks, error: error)
-           }
+        self.startText.isHidden = true
+        self.startText.resignFirstResponder()
+        self.enterButton.setTitle("Contiune", for: .normal)
+        print(cords)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "NavView")
         controller.modalPresentationStyle = .fullScreen
@@ -74,10 +75,11 @@ class RouteViewController: UIViewController {
                   }
 
                   if let location = location {
-                      let coordinate = location.coordinate
+                    let coordinate = location.coordinate
                     self.locationText.text! += "\(coordinate.latitude), \(coordinate.longitude) \n"
                     cords.append(coordinate)
-                    print(cords)
+                    cordss += "\(coordinate)"
+                    //print(cords)
                   } else {
                     self.locationText.text = "No Matching Location Found"
                   }
