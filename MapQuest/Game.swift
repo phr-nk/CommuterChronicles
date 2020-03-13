@@ -69,7 +69,8 @@ class Game {
   }
 
   private func setupPOIs() {
-    pointsOfInterest = [  PointOfInterest(name: "The Bone Zone", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "storesmall")),
+    pointsOfInterest = [  PointOfInterest(name: "shop", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "shopmap")),
+                          PointOfInterest(name: "CAVE", location: CLLocation(latitude: 41.925305, longitude: -87.655403), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "CAVEMAP")),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster")),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))]
     

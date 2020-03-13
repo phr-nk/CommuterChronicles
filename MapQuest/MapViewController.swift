@@ -166,7 +166,6 @@ class MapViewController: UIViewController {
            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
            print(center)
            cord = center
-           let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
          
        }
     return cord ?? CLLocationCoordinate2D(latitude: 50.000 , longitude: 20.000)
@@ -277,7 +276,7 @@ extension MapViewController: GameDelegate {
 
     alert.blurEffectStyle = .regular
 
-    let image = Game.shared.image(for: monster)
+    let image = UIImage(named: "monster")
     alert.alertImage.image = image
     alert.alertTitle.text = "A wild \(monster.name) appeared!"
     alert.alertSubtitle.text = subtitle
