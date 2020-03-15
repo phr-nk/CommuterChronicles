@@ -42,14 +42,16 @@ class PointOfInterest: NSObject  {
   let isRegenPoint: Bool
   let encounter: Encounter?
   var image: UIImage
+  var visited: Bool
 
   // MARK: - Initializers
-  init(name: String, location: CLLocation, isRegenPoint: Bool, encounter: Encounter? = nil,image: UIImage) {
+  init(name: String, location: CLLocation, isRegenPoint: Bool, encounter: Encounter? = nil,image: UIImage, visited: Bool) {
     self.name = name
     self.location = location
     self.isRegenPoint = isRegenPoint
     self.encounter = encounter
     self.image = image
+    self.visited = visited
   }
 }
 

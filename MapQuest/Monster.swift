@@ -29,7 +29,7 @@
  */
 
 import Foundation
-
+import UIKit
 class Monster {
 
   // MARK: - Properties
@@ -37,18 +37,22 @@ class Monster {
   var hitPoints: Int
   var baseStrength: Int
   var gold: Int
+  var image: UIImage
 
   var strength: Int { return baseStrength }
 
   // MARK: - Initializers
-  init(name: String, hitPoints: Int, strength: Int, gold: Int = 0) {
+  init(name: String, hitPoints: Int, strength: Int, gold: Int = 0,image: UIImage) {
     self.name = name
     self.hitPoints = hitPoints
     self.baseStrength = strength
     self.gold = gold
+    self.image = image
+    
   }
 }
 
 extension Monster {
-  static let Goblin = Monster(name: "Goblin", hitPoints: 1, strength: 1, gold: 10)
+  static let Cyclops = Monster(name: "Cyclops", hitPoints: 1, strength: 1, gold: 10,image: UIImage(named: "monster")!)
+  static let Ghost = Monster(name: "Ghost", hitPoints: 1, strength: 1, gold: 15, image: UIImage(named: "ghost")!)
 }

@@ -12,6 +12,8 @@ class CaveViewController: UIViewController {
 
     @IBOutlet weak var chestClose: UIImageView!
     @IBOutlet weak var chestOpen: UIImageView!
+    var i = 0
+    var cave : Cave!
     override func viewDidLoad() {
         super.viewDidLoad()
         chestClose.isHidden = false
@@ -21,10 +23,29 @@ class CaveViewController: UIViewController {
     }
     
     @IBAction func chetClick(_ sender: UIButton) {
-            if (chestClose.isHidden == true)
+            if (chestClose.isHidden == false)
              {
+                self.i += 1
                 chestOpen.isHidden = false
                 chestClose.isHidden = true
+                if(self.i == 1)
+                {
+                    let alert = AABlurAlertController()
+
+
+                    alert.addAction(action: AABlurAlertAction(title: "Take", style: AABlurActionStyle.default) {  _ in
+                         print("got some loot")
+                         Game.shared.adventurer?.inventory.append(Item(name:"shield", cost: 20))
+                       })
+
+                       alert.blurEffectStyle = .regular
+
+                  let image = UIImage(named: "chestopen")
+                       alert.alertImage.image = image
+                       alert.alertTitle.text = "CHEST"
+                       alert.alertSubtitle.text = "You found a chest!"
+                       present(alert, animated: true)
+                }
              }
              else
              {

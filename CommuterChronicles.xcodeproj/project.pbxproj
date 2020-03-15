@@ -29,6 +29,8 @@
 		0AF3474F1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */; };
 		0AF347541EA6F8010019ED94 /* WarpZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF347531EA6F8010019ED94 /* WarpZone.swift */; };
 		6F741F0B241BE7450049D3BB /* CaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0A241BE7450049D3BB /* CaveViewController.swift */; };
+		6F741F0D241C1F4F0049D3BB /* Cave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0C241C1F4F0049D3BB /* Cave.swift */; };
+		6F741F0F241EB0090049D3BB /* End.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0E241EB0090049D3BB /* End.swift */; };
 		6FAEED022411D2C000E2DEF3 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAEED012411D2C000E2DEF3 /* RouteViewController.swift */; };
 		6FF5C34D24101F870005082C /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5C34C24101F870005082C /* Route.swift */; };
 		6FF5C34F24103F220005082C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5C34E24103F220005082C /* LocationManager.swift */; };
@@ -59,6 +61,8 @@
 		0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PointOfInterest+MapKit.swift"; sourceTree = "<group>"; };
 		0AF347531EA6F8010019ED94 /* WarpZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpZone.swift; sourceTree = "<group>"; };
 		6F741F0A241BE7450049D3BB /* CaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveViewController.swift; sourceTree = "<group>"; };
+		6F741F0C241C1F4F0049D3BB /* Cave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cave.swift; sourceTree = "<group>"; };
+		6F741F0E241EB0090049D3BB /* End.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = End.swift; sourceTree = "<group>"; };
 		6FAEED012411D2C000E2DEF3 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		6FF5C34C24101F870005082C /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		6FF5C34E24103F220005082C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				0A4D700C1EA516960098C0A7 /* Store.swift */,
 				0A4D700E1EA516E20098C0A7 /* Item.swift */,
 				0A4D70101EA517760098C0A7 /* Weapon.swift */,
+				6F741F0C241C1F4F0049D3BB /* Cave.swift */,
+				6F741F0E241EB0090049D3BB /* End.swift */,
 			);
 			name = "Game Code";
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F741F0D241C1F4F0049D3BB /* Cave.swift in Sources */,
 				0A16AD501E9E600C00347DCE /* LocationListener.swift in Sources */,
 				0A4D700B1EA5166C0098C0A7 /* Encounter.swift in Sources */,
 				0A16AD4E1E9E5F4100347DCE /* PointOfInterest.swift in Sources */,
@@ -240,6 +247,7 @@
 				0A16AD4C1E9E5C6E00347DCE /* Game.swift in Sources */,
 				0AF347541EA6F8010019ED94 /* WarpZone.swift in Sources */,
 				0A16AD171E96EDC100347DCE /* MapViewController.swift in Sources */,
+				6F741F0F241EB0090049D3BB /* End.swift in Sources */,
 				0A4D700F1EA516E20098C0A7 /* Item.swift in Sources */,
 				0AF3474F1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift in Sources */,
 				6FF5C34F24103F220005082C /* LocationManager.swift in Sources */,

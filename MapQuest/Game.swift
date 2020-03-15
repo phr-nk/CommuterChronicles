@@ -31,7 +31,7 @@
 import UIKit
 import CoreLocation
 
-let ENCOUNTER_RADIUS: CLLocationDistance = 100 //meters
+let ENCOUNTER_RADIUS: CLLocationDistance = 30 //meters
 
 enum FightResult {
   case HeroWon, HeroLost, Tie
@@ -47,6 +47,7 @@ protocol GameDelegate: class {
   func encounteredMonster(monster: Monster)
   func encounteredNPC(npc: NPC)
   func enteredStore(store: Store)
+  func enteredCave(cave: Cave)
 }
 
 class Game {
@@ -62,17 +63,16 @@ class Game {
 
   // MARK: - Initializers
   init() {
-    adventurer = Adventurer(name: "Hero", hitPoints: 10, strength: 10)
+    adventurer = Adventurer(name: "Hero", hitPoints: 10, strength: 10,image: userimage ?? UIImage(named: "wizard")!)
     setupPOIs()
     setupWarps()
-    setupResevoir()
   }
 
   private func setupPOIs() {
-    pointsOfInterest = [  PointOfInterest(name: "shop", location: CLLocation(latitude: 41.925064, longitude: -87.655382), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "shopmap")),
-                          PointOfInterest(name: "CAVE", location: CLLocation(latitude: 41.925305, longitude: -87.655403), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "CAVEMAP")),
-                          PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.910391, longitude: -87.672791), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster")),
-                          PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Goblin,image:#imageLiteral(resourceName: "monster"))]
+    pointsOfInterest = [  PointOfInterest(name: "A local shop", location: CLLocation(latitude: 41.910029, longitude: -87.674211), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "shopmap"),visited: false),
+                          PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Cyclops,image:#imageLiteral(resourceName: "monster"),visited: false),
+                          PointOfInterest(name: "Chrono Cave", location: CLLocation(latitude: 41.910848, longitude: -87.675880), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "CAVEMAP"),visited: false),
+                          PointOfInterest(name: "A Ghost", location: CLLocation(latitude: 41.910448, longitude: -87.674826), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "ghost"),visited: false),]
     
   }
 
@@ -102,68 +102,7 @@ class Game {
   }
 
   
-  private func setupResevoir() {
-    reservoir = [
-      CLLocationCoordinate2D(latitude: 40.78884, longitude: -73.95857),
-      CLLocationCoordinate2D(latitude: 40.78889, longitude: -73.95824),
-      CLLocationCoordinate2D(latitude: 40.78882, longitude: -73.95786),
-      CLLocationCoordinate2D(latitude: 40.78867, longitude: -73.95758),
-      CLLocationCoordinate2D(latitude: 40.78838, longitude: -73.95749),
-      CLLocationCoordinate2D(latitude: 40.78793, longitude: -73.95764),
-      CLLocationCoordinate2D(latitude: 40.78744, longitude: -73.95777),
-      CLLocationCoordinate2D(latitude: 40.78699, longitude: -73.95777),
-      CLLocationCoordinate2D(latitude: 40.78655, longitude: -73.95779),
-      CLLocationCoordinate2D(latitude: 40.78609, longitude: -73.95818),
-      CLLocationCoordinate2D(latitude: 40.78543, longitude: -73.95867),
-      CLLocationCoordinate2D(latitude: 40.78469, longitude: -73.95919),
-      CLLocationCoordinate2D(latitude: 40.78388, longitude: -73.95975),
-      CLLocationCoordinate2D(latitude: 40.78325, longitude: -73.96022),
-      CLLocationCoordinate2D(latitude: 40.78258, longitude: -73.96067),
-      CLLocationCoordinate2D(latitude: 40.78227, longitude: -73.96101),
-      CLLocationCoordinate2D(latitude: 40.78208, longitude: -73.96136),
-      CLLocationCoordinate2D(latitude: 40.782, longitude: -73.96172),
-      CLLocationCoordinate2D(latitude: 40.78201, longitude: -73.96202),
-      CLLocationCoordinate2D(latitude: 40.78214, longitude: -73.96247),
-      CLLocationCoordinate2D(latitude: 40.78237, longitude: -73.96279),
-      CLLocationCoordinate2D(latitude: 40.78266, longitude: -73.96309),
-      CLLocationCoordinate2D(latitude: 40.7832, longitude: -73.96331),
-      CLLocationCoordinate2D(latitude: 40.78361, longitude: -73.96363),
-      CLLocationCoordinate2D(latitude: 40.78382, longitude: -73.96395),
-      CLLocationCoordinate2D(latitude: 40.78401, longitude: -73.96453),
-      CLLocationCoordinate2D(latitude: 40.78416, longitude: -73.96498),
-      CLLocationCoordinate2D(latitude: 40.78437, longitude: -73.9656),
-      CLLocationCoordinate2D(latitude: 40.78456, longitude: -73.96601),
-      CLLocationCoordinate2D(latitude: 40.78479, longitude: -73.96636),
-      CLLocationCoordinate2D(latitude: 40.78502, longitude: -73.96661),
-      CLLocationCoordinate2D(latitude: 40.78569, longitude: -73.96659),
-      CLLocationCoordinate2D(latitude: 40.78634, longitude: -73.9664),
-      CLLocationCoordinate2D(latitude: 40.78705, longitude: -73.96623),
-      CLLocationCoordinate2D(latitude: 40.78762, longitude: -73.96603),
-      CLLocationCoordinate2D(latitude: 40.78791, longitude: -73.96571),
-      CLLocationCoordinate2D(latitude: 40.78816, longitude: -73.96533),
-      CLLocationCoordinate2D(latitude: 40.78822, longitude: -73.9649),
-      CLLocationCoordinate2D(latitude: 40.7882, longitude: -73.96445),
-      CLLocationCoordinate2D(latitude: 40.78819, longitude: -73.96404),
-      CLLocationCoordinate2D(latitude: 40.78814, longitude: -73.96378),
-      CLLocationCoordinate2D(latitude: 40.7882, longitude: -73.96354),
-      CLLocationCoordinate2D(latitude: 40.78819, longitude: -73.96327),
-      CLLocationCoordinate2D(latitude: 40.78817, longitude: -73.96301),
-      CLLocationCoordinate2D(latitude: 40.7882, longitude: -73.96269),
-      CLLocationCoordinate2D(latitude: 40.7882, longitude: -73.96245),
-      CLLocationCoordinate2D(latitude: 40.7883, longitude: -73.96217),
-      CLLocationCoordinate2D(latitude: 40.7885, longitude: -73.96189),
-      CLLocationCoordinate2D(latitude: 40.78874, longitude: -73.96161),
-      CLLocationCoordinate2D(latitude: 40.78884, longitude: -73.96127),
-      CLLocationCoordinate2D(latitude: 40.78885, longitude: -73.96093),
-      CLLocationCoordinate2D(latitude: 40.78879, longitude: -73.9606),
-      CLLocationCoordinate2D(latitude: 40.78869, longitude: -73.96037),
-      CLLocationCoordinate2D(latitude: 40.78864, longitude: -73.96009),
-      CLLocationCoordinate2D(latitude: 40.78863, longitude: -73.95972),
-      CLLocationCoordinate2D(latitude: 40.78863, longitude: -73.95936),
-      CLLocationCoordinate2D(latitude: 40.78867, longitude: -73.95895)
-    ]
-  }
-
+ 
   func genRandomLat(lat: CLLocationDegrees, lat2: CLLocationDegrees) -> CLLocationDegrees
   {
     let randomLat = Double.random(in: lat ..< lat2)
@@ -188,6 +127,9 @@ class Game {
       delegate?.encounteredMonster(monster: monster)
     case let store as Store:
       delegate?.enteredStore(store: store)
+    case let cave as Cave:
+      delegate?.enteredCave(cave: cave)
+      
     default:
       break
     }
@@ -199,13 +141,13 @@ class Game {
       let distance = abs(location.distance(from: center))
       if distance < ENCOUNTER_RADIUS {
         //debounce staying in the same spot for awhile
-        if point != lastPOI {
-          lastPOI = point
-          return point
-        } else {
+        if point != lastPOI  {
+         lastPOI = point
+         return point
+       } else {
           return nil
-        }
-      }
+       }
+    }
     }
     lastPOI = nil
     return nil
@@ -259,10 +201,12 @@ extension Game {
 
   func image(for monster: Monster) -> UIImage? {
     switch monster.name {
-    case Monster.Goblin.name:
+    case Monster.Cyclops.name:
       return UIImage(named: "goblin")
     case NPC.King.name:
       return UIImage(named: "king")
+    case Monster.Ghost.name:
+      return UIImage(named: "ghost")
     default:
       return nil
     }

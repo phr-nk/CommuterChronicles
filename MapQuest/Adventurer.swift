@@ -29,6 +29,7 @@
  */
 
 import Foundation
+import UIKit
 
 class Adventurer: Monster {
 
@@ -42,8 +43,8 @@ class Adventurer: Monster {
   }
 
   // MARK: - Initializers
-  override init(name: String, hitPoints: Int, strength: Int, gold: Int = 100) {
-    super.init(name: name, hitPoints: hitPoints, strength: strength, gold: gold)
+  override init(name: String, hitPoints: Int, strength: Int, gold: Int = 100, image: UIImage) {
+    super.init(name: name, hitPoints: hitPoints, strength: strength, gold: gold, image: image)
 
     maxHitPoints = hitPoints
   }

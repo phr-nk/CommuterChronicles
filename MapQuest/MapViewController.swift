@@ -39,6 +39,7 @@ class MapViewController: UIViewController {
   
   var cordStart:CLLocationCoordinate2D?
   var cordEnd: CLLocationCoordinate2D?
+
   
   // MARK: - IBOutlets
   @IBOutlet weak var mapView: MKMapView!
@@ -49,14 +50,17 @@ class MapViewController: UIViewController {
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(cordss)
     
     let request = MKDirections.Request()
     
     
       let start = cords[0]
       let end = cords[1]
+    
       
+      let endPOI = PointOfInterest(name: "End Goal", location: CLLocation(latitude: cords[1].latitude, longitude: cords[1].longitude), isRegenPoint: true, encounter: End.end ,image:#imageLiteral(resourceName: "END"),visited: false)
+      
+      Game.shared.pointsOfInterest.append(endPOI)
       let sourcePlacemark = MKPlacemark(coordinate: start, addressDictionary: nil)
       let desPlacemark = MKPlacemark(coordinate: end,addressDictionary: nil)
       
@@ -110,9 +114,6 @@ class MapViewController: UIViewController {
     //mapView.addAnnotation(addRoute())
 
 
-    let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.774669555422349, longitude: -73.964170794293238),
-                                           span: MKCoordinateSpan(latitudeDelta: 0.16405544070813249, longitudeDelta: 0.1232528799585566))
-    mapView.region = initialRegion
     mapView.showsUserLocation = true
     mapView.showsCompass = true
     mapView.setUserTrackingMode(.followWithHeading, animated: true)
@@ -181,8 +182,14 @@ class MapViewController: UIViewController {
       let store = sender as? Store {
         shopController.shop = store
     }
-  }
+   if segue.identifier == "cave",
+      let caveController = segue.destination as? CaveViewController,
+      let c = sender as? Cave {
+        caveController.cave = c
+    }
+    }
 }
+
 
 // MARK: - MapView Delegate
 extension MapViewController: MKMapViewDelegate {
@@ -276,7 +283,7 @@ extension MapViewController: GameDelegate {
 
     alert.blurEffectStyle = .regular
 
-    let image = UIImage(named: "monster")
+    let image = monster.image
     alert.alertImage.image = image
     alert.alertTitle.text = "A wild \(monster.name) appeared!"
     alert.alertSubtitle.text = subtitle
@@ -317,12 +324,31 @@ extension MapViewController: GameDelegate {
 
     alert.blurEffectStyle = .regular
 
-    let image = Game.shared.image(for: store)
+    let image = UIImage(named: "store-1")
     alert.alertImage.image = image
     alert.alertTitle.text = store.name
     alert.alertSubtitle.text = "Shopping for accessories?"
     present(alert, animated: true)
   }
+  func enteredCave(cave: Cave) {
+    let alert = AABlurAlertController()
+
+    alert.addAction(action: AABlurAlertAction(title: "Back Out", style: AABlurActionStyle.cancel) {  _ in
+      print("did not buy anything")
+    })
+
+    alert.addAction(action: AABlurAlertAction(title: "Explore Cave", style: AABlurActionStyle.default) { [unowned self] _ in
+      self.performSegue(withIdentifier: "cave", sender: cave)
+    })
+
+    alert.blurEffectStyle = .regular
+
+    let image = UIImage(named: "cave-enterance")
+    alert.alertImage.image = image
+    alert.alertTitle.text = cave.name
+    present(alert, animated: true)
+  }
+
   func addRoute() -> MKPolyline{
    
     let cord1 = self.cordStart!

@@ -29,6 +29,7 @@
  */
 
 import Foundation
+import UIKit
 
 class NPC: Monster {
 
@@ -38,7 +39,7 @@ class NPC: Monster {
   // MARK: - Initializers
   init(quest: String, name: String) {
     self.quest = quest
-    super.init(name: name, hitPoints: 0, strength: 0)
+    super.init(name: name, hitPoints: 0, strength: 0, image: UIImage(named: "priest")!)
   }
 }
 
