@@ -22,6 +22,6 @@ class End {
   }
 }
 extension End {
-  static let end = End(name:"The Ending",_item: Item(name: "Super Rare Thing", cost: 10000))
+  static let end = End(name:"Hurray! You did it!",_item: Item(name: "Super Rare Thing", cost: 10000))
 }
 

@@ -400,6 +400,8 @@ extension MapViewController: GameDelegate {
     let image = UIImage(named: "goldbag")
     alert.alertImage.image = image
     alert.alertTitle.text = end.name
+    alert.alertSubtitle.text = "You have been awarded 10000 gold and a rare item"
+    Game.shared.adventurer?.gold += 10000
     present(alert, animated: true)
   }
 
