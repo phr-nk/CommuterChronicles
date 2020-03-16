@@ -44,6 +44,6 @@ class Store {
 }
 
 extension Store {
-  static let AppleStore = Store(name: "The \"Fruit\" Store", items: [Weapon.Sword6Plus])
+  static let OakTavern = Store(name: "Old Oak Tavern", items: [Weapon.Sword6Plus])
 
 }

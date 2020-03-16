@@ -45,7 +45,6 @@ let GameStateNotification = Notification.Name("GameUpdated")
 
 protocol GameDelegate: class {
   func encounteredMonster(monster: Monster)
-  func encounteredNPC(npc: NPC)
   func enteredStore(store: Store)
   func enteredCave(cave: Cave) //added
   func encounteredEnd(end: End) //added
@@ -58,61 +57,24 @@ class Game {
   var adventurer: Adventurer?
   var pointsOfInterest: [PointOfInterest] = []
   var lastPOI: PointOfInterest?
-  var warps: [WarpZone] = []
-  var reservoir: [CLLocationCoordinate2D] = []
+
   weak var delegate: GameDelegate?
 
   // MARK: - Initializers
   init() {
     adventurer = Adventurer(name: "Hero", hitPoints: 10, strength: 10,image: userimage ?? UIImage(named: "wizard")!)
     setupPOIs()
-    setupWarps()
+
   }
 
   private func setupPOIs() {
-    pointsOfInterest = [  PointOfInterest(name: "A local shop", location: CLLocation(latitude: 41.910029, longitude: -87.674211), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "shopmap"),visited: false),
+    pointsOfInterest = [  PointOfInterest(name: "A local shop", location: CLLocation(latitude: 41.910029, longitude: -87.674211), isRegenPoint: false, encounter: Store.OakTavern,image:#imageLiteral(resourceName: "shopmap"),visited: false),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Cyclops,image:#imageLiteral(resourceName: "monster"),visited: false),
                           PointOfInterest(name: "Chrono Cave", location: CLLocation(latitude: 41.910848, longitude: -87.675880), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "CAVEMAP"),visited: false),]
     
   }
 
-  private func setupWarps() {
-    warps = [WarpZone(latitude: 40.765158, longitude: -73.974774, color: #colorLiteral(red: 0.9882352941, green: 0.8, blue: 0.03921568627, alpha: 1)),
-             WarpZone(latitude: 40.768712, longitude: -73.981590, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.768712, longitude: -73.981590, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.776219, longitude: -73.976247, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.776219, longitude: -73.976247, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.781987, longitude: -73.972020, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.781987, longitude: -73.972020, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.785253, longitude: -73.969638, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.785253, longitude: -73.969638, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.791605, longitude: -73.964853, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.791605, longitude: -73.964853, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.796089, longitude: -73.961463, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.796089, longitude: -73.961463, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.799988, longitude: -73.958480, color: #colorLiteral(red: 1, green: 0.3882352941, blue: 0.09803921569, alpha: 1)),
-             WarpZone(latitude: 40.799988, longitude: -73.958480, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.798493, longitude: -73.952622, color: #colorLiteral(red: 0.9333333333, green: 0.2078431373, blue: 0.1803921569, alpha: 1)),
-             WarpZone(latitude: 40.755238, longitude: -73.987405, color: #colorLiteral(red: 0.7254901961, green: 0.2, blue: 0.6784313725, alpha: 1)),
-             WarpZone(latitude: 40.754344, longitude: -73.987105, color: #colorLiteral(red: 0.9882352941, green: 0.8, blue: 0.03921568627, alpha: 1)),
-             WarpZone(latitude: 40.865757, longitude: -73.927088, color: #colorLiteral(red: 0, green: 0.2235294118, blue: 0.6509803922, alpha: 1)),
-             WarpZone(latitude: 40.701789, longitude: -74.013004, color: #colorLiteral(red: 0.9333333333, green: 0.2078431373, blue: 0.1803921569, alpha: 1)),
-             WarpZone(latitude: 41.924184, longitude: -87.655362,color:#colorLiteral(red: 0.9333333333, green: 0.2078431373, blue: 0.1803921569, alpha: 1))
-    ]
-  }
-
-  
  
-  func genRandomLat(lat: CLLocationDegrees, lat2: CLLocationDegrees) -> CLLocationDegrees
-  {
-    let randomLat = Double.random(in: lat ..< lat2)
-    return randomLat
-  }
-  func genRandomLong(long:CLLocationDegrees, long2: CLLocationDegrees) -> CLLocationDegrees
-  {
-    let randomLong = Double.random(in: long ..< long2)
-    return randomLong
-  }
   func visitedLocation(location: CLLocation) {
     guard let currentPOI = poiAtLocation(location: location) else { return }
 
@@ -121,8 +83,6 @@ class Game {
     }
 
     switch currentPOI.encounter {
-    case let npc as NPC:
-      delegate?.encounteredNPC(npc: npc)
     case let monster as Monster:
       delegate?.encounteredMonster(monster: monster)
     case let store as Store:
@@ -203,9 +163,7 @@ extension Game {
   func image(for monster: Monster) -> UIImage? {
     switch monster.name {
     case Monster.Cyclops.name:
-      return UIImage(named: "goblin")
-    case NPC.King.name:
-      return UIImage(named: "king")
+      return UIImage(named: "monster")
     case Monster.Ghost.name:
       return UIImage(named: "ghost")
     default:

@@ -24,10 +24,8 @@
 		0A4D700F1EA516E20098C0A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D700E1EA516E20098C0A7 /* Item.swift */; };
 		0A4D70111EA517760098C0A7 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D70101EA517760098C0A7 /* Weapon.swift */; };
 		0A4D70131EA51BE70098C0A7 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D70121EA51BE70098C0A7 /* HeroViewController.swift */; };
-		0A76AC721EB223310091053A /* NPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76AC711EB223310091053A /* NPC.swift */; };
 		0AF3474D1EA5691B0019ED94 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3474C1EA5691B0019ED94 /* ShopViewController.swift */; };
 		0AF3474F1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */; };
-		0AF347541EA6F8010019ED94 /* WarpZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF347531EA6F8010019ED94 /* WarpZone.swift */; };
 		6F741F0B241BE7450049D3BB /* CaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0A241BE7450049D3BB /* CaveViewController.swift */; };
 		6F741F0D241C1F4F0049D3BB /* Cave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0C241C1F4F0049D3BB /* Cave.swift */; };
 		6F741F0F241EB0090049D3BB /* End.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F741F0E241EB0090049D3BB /* End.swift */; };
@@ -56,10 +54,8 @@
 		0A4D700E1EA516E20098C0A7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0A4D70101EA517760098C0A7 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		0A4D70121EA51BE70098C0A7 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
-		0A76AC711EB223310091053A /* NPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPC.swift; sourceTree = "<group>"; };
 		0AF3474C1EA5691B0019ED94 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PointOfInterest+MapKit.swift"; sourceTree = "<group>"; };
-		0AF347531EA6F8010019ED94 /* WarpZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpZone.swift; sourceTree = "<group>"; };
 		6F741F0A241BE7450049D3BB /* CaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveViewController.swift; sourceTree = "<group>"; };
 		6F741F0C241C1F4F0049D3BB /* Cave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cave.swift; sourceTree = "<group>"; };
 		6F741F0E241EB0090049D3BB /* End.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = End.swift; sourceTree = "<group>"; };
@@ -111,7 +107,6 @@
 				0A4D70121EA51BE70098C0A7 /* HeroViewController.swift */,
 				0AF3474C1EA5691B0019ED94 /* ShopViewController.swift */,
 				0AF3474E1EA5A9EE0019ED94 /* PointOfInterest+MapKit.swift */,
-				0AF347531EA6F8010019ED94 /* WarpZone.swift */,
 				0AF3474A1EA54A1C0019ED94 /* Game Code */,
 				0A16ACEC1E96EDAD00347DCE /* Main.storyboard */,
 				0A16ACEF1E96EDAD00347DCE /* Assets.xcassets */,
@@ -144,7 +139,6 @@
 				0A16AD4B1E9E5C6E00347DCE /* Game.swift */,
 				0A16AD491E9E5BCA00347DCE /* Monster.swift */,
 				6FF5C34C24101F870005082C /* Route.swift */,
-				0A76AC711EB223310091053A /* NPC.swift */,
 				0A16AD471E9E5BA800347DCE /* Adventurer.swift */,
 				0A16AD4D1E9E5F4100347DCE /* PointOfInterest.swift */,
 				0A4D700A1EA5166C0098C0A7 /* Encounter.swift */,
@@ -242,10 +236,8 @@
 				0A16AD4E1E9E5F4100347DCE /* PointOfInterest.swift in Sources */,
 				0A4D70111EA517760098C0A7 /* Weapon.swift in Sources */,
 				0A4D700D1EA516960098C0A7 /* Store.swift in Sources */,
-				0A76AC721EB223310091053A /* NPC.swift in Sources */,
 				0A16AD4A1E9E5BCA00347DCE /* Monster.swift in Sources */,
 				0A16AD4C1E9E5C6E00347DCE /* Game.swift in Sources */,
-				0AF347541EA6F8010019ED94 /* WarpZone.swift in Sources */,
 				0A16AD171E96EDC100347DCE /* MapViewController.swift in Sources */,
 				6F741F0F241EB0090049D3BB /* End.swift in Sources */,
 				0A4D700F1EA516E20098C0A7 /* Item.swift in Sources */,
@@ -410,6 +402,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -428,6 +421,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

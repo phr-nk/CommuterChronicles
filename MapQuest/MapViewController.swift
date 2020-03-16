@@ -28,15 +28,19 @@
  * THE SOFTWARE.
  */
 
+
+// I have made many changes to this view controller and will note them when added
+
 import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
 
+  //added
   //MARK: Route end points
   var routeStart:String?
   var routeEnd:String?
-  
+  //added
   var cordStart:CLLocationCoordinate2D?
   var cordEnd: CLLocationCoordinate2D?
 
@@ -50,10 +54,10 @@ class MapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let request = MKDirections.Request()
+    let request = MKDirections.Request() //added
     
     
-      
+      //added for lines 60 to 122
       let start = cords[0] //start coord
       let end = cords[1] //end coord
     
@@ -119,7 +123,6 @@ class MapViewController: UIViewController {
 
   
     
-    mapView.addAnnotations(Game.shared.warps)
     mapView.addAnnotations(Game.shared.pointsOfInterest)
 
 
@@ -266,12 +269,6 @@ extension MapViewController: MKMapViewDelegate {
       view.image = userimage
       return view
       
-    case let warp as WarpZone:
-      let view = mapView.dequeueReusableAnnotationView(withIdentifier: WarpAnnotationView.identifier)
-      ?? WarpAnnotationView(annotation: warp, reuseIdentifier: WarpAnnotationView.identifier)
-      view.annotation = warp
-    
-      return view
       
     case let poi as PointOfInterest:
       let view = mapView.dequeueReusableAnnotationView(withIdentifier: POIAnnotationView.identifier)
@@ -351,25 +348,7 @@ extension MapViewController: GameDelegate {
     present(finishedalert,animated: true)
   }
 
-  func encounteredNPC(npc: NPC) {
-    let alert = AABlurAlertController()
 
-    alert.addAction(action: AABlurAlertAction(title: "No Thanks", style: AABlurActionStyle.cancel) {  _ in
-      print("done with encounter")
-    })
-
-    alert.addAction(action: AABlurAlertAction(title: "On My Way", style: AABlurActionStyle.default) {  _ in
-      print("did not buy anything")
-    })
-
-    alert.blurEffectStyle = .regular
-
-    let image = Game.shared.image(for: npc)
-    alert.alertImage.image = image
-    alert.alertTitle.text = npc.name
-    alert.alertSubtitle.text = npc.quest
-    present(alert, animated: true)
-  }
 
   func enteredStore(store: Store) {
     let alert = AABlurAlertController()

@@ -35,13 +35,32 @@ class HeroViewController: UIViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var heartOutlet: UILabel!
+    @IBOutlet weak var goldOutlet: UILabel!
+    
   // MARK: - View Life Cycle
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    heartOutlet.text = heartsString()
+    goldOutlet.text = goldString()
     avatarImageView.image = userimage
   }
+    private func heartsString() -> String {
+      guard let hp = Game.shared.adventurer?.hitPoints else { return "☠️" }
+
+      let heartCount = hp / 2
+      var string = ""
+      for _ in 1 ... heartCount {
+        string += "❤️"
+      }
+      return string
+    }
+
+    private func goldString() -> String {
+      guard let gold = Game.shared.adventurer?.gold else { return "" }
+
+      return "💰\(gold)"
+    }
 }
 
 // MARK: - UICollectionViewDataSource
