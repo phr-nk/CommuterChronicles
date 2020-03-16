@@ -40,7 +40,6 @@ class MapViewController: UIViewController {
   var cordStart:CLLocationCoordinate2D?
   var cordEnd: CLLocationCoordinate2D?
 
-  
   // MARK: - IBOutlets
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var heartsLabel: UILabel!
@@ -54,11 +53,22 @@ class MapViewController: UIViewController {
     let request = MKDirections.Request()
     
     
-      let start = cords[0]
-      let end = cords[1]
+      
+      let start = cords[0] //start coord
+      let end = cords[1] //end coord
     
       
       let endPOI = PointOfInterest(name: "End Goal", location: CLLocation(latitude: cords[1].latitude, longitude: cords[1].longitude), isRegenPoint: true, encounter: End.end ,image:#imageLiteral(resourceName: "END"),visited: false)
+    
+    for _ in 0...1 //add ghosts
+    {
+      Game.shared.pointsOfInterest.append(PointOfInterest(name: "Monster", location: CLLocation(latitude: self.genRandomLat(lat:cords[0].latitude,lat2: cords[1].latitude), longitude: self.genRandomLong(long:cords[0].longitude,long2:cords[1].longitude)), isRegenPoint: false, encounter: Monster.Ghost ,image:#imageLiteral(resourceName: "ghost"),visited: false))
+    }
+    for _ in 0...2 //add cyclops
+    {
+      Game.shared.pointsOfInterest.append(PointOfInterest(name: "Monster", location: CLLocation(latitude: self.genRandomLat(lat:cords[0].latitude,lat2: cords[1].latitude), longitude: self.genRandomLong(long:cords[0].longitude,long2:cords[1].longitude)), isRegenPoint: false, encounter: Monster.Cyclops ,image:#imageLiteral(resourceName: "monster"),visited: false))
+    }
+    
       
       Game.shared.pointsOfInterest.append(endPOI)
       let sourcePlacemark = MKPlacemark(coordinate: start, addressDictionary: nil)
@@ -111,7 +121,6 @@ class MapViewController: UIViewController {
     
     mapView.addAnnotations(Game.shared.warps)
     mapView.addAnnotations(Game.shared.pointsOfInterest)
-    //mapView.addAnnotation(addRoute())
 
 
     mapView.showsUserLocation = true
@@ -131,7 +140,6 @@ class MapViewController: UIViewController {
   }
 
 
-  //get corrdinate from user text: Frank Code
   func getCoordinate( forPlaceCalled name : String,
           completion: @escaping(CLLocation?) -> Void ) {
         let geocoder = CLGeocoder()
@@ -159,17 +167,69 @@ class MapViewController: UIViewController {
             }
   }
   
-  func returnLocationFromString(location:String) ->CLLocationCoordinate2D  {
-    var cord:CLLocationCoordinate2D?
-    getCoordinate(forPlaceCalled: location ){ location  in
-           guard let location = location else { return }
-           
-           let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-           print(center)
-           cord = center
-         
+ 
+  func genRandomLat(lat: CLLocationDegrees, lat2: CLLocationDegrees) -> CLLocationDegrees
+  {
+    let rand = Double.random(in: 0.00009...0.0009)
+    let randInt = Int.random(in: 0...1)
+    print(randInt)
+    var finalCord: CLLocationDegrees?
+    let latdiff = lat - lat2
+    if latdiff < 0
+    {
+      if(randInt == 0)
+      {
+        finalCord = lat - rand
+      }
+      else
+      {
+           finalCord = lat + rand
+      }
+    }
+    if latdiff > 0
+    {
+      if(randInt == 0)
+      {
+        finalCord = lat2 - rand
+      }
+      else
+      {
+           finalCord = lat2 + rand
+      }
+    }
+
+    return finalCord!
+  }
+  func genRandomLong(long:CLLocationDegrees, long2: CLLocationDegrees) -> CLLocationDegrees
+  {
+       let rand = Double.random(in: 0.00008...0.005)
+       let randInt = Int.random(in: 0...1)
+       var finalCord: CLLocationDegrees?
+       let longdiff = long - long2
+       if longdiff < 0
+       {
+          if(randInt == 0)
+              {
+                finalCord = long - rand
+              }
+              else
+              {
+                   finalCord = long + rand
+              }
        }
-    return cord ?? CLLocationCoordinate2D(latitude: 50.000 , longitude: 20.000)
+       if longdiff > 0
+       {
+          if(randInt == 0)
+              {
+                finalCord = long2 - rand
+              }
+              else
+              {
+                   finalCord = long2 + rand
+              }
+       }
+
+       return finalCord!
   }
   @objc func gameUpdated(notification: Notification) {
     renderGame()
@@ -346,6 +406,21 @@ extension MapViewController: GameDelegate {
     let image = UIImage(named: "cave-enterance")
     alert.alertImage.image = image
     alert.alertTitle.text = cave.name
+    present(alert, animated: true)
+  }
+  func encounteredEnd(end: End) {
+  
+    let alert = AABlurAlertController()
+
+    alert.addAction(action: AABlurAlertAction(title: "Back Out", style: AABlurActionStyle.cancel) {  _ in
+    })
+
+
+    alert.blurEffectStyle = .regular
+
+    let image = UIImage(named: "goldbag")
+    alert.alertImage.image = image
+    alert.alertTitle.text = end.name
     present(alert, animated: true)
   }
 

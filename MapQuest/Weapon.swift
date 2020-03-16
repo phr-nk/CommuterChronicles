@@ -44,4 +44,5 @@ class Weapon : Item {
 
 extension Weapon {
   static let Sword6Plus = Weapon(name: "Sword 6+", cost: 50, strength: 6)
+  static let Shield = Weapon(name: "Defence 5+", cost: 20, strength: 6)
 }

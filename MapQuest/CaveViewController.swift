@@ -43,7 +43,7 @@ class CaveViewController: UIViewController {
                   let image = UIImage(named: "chestopen")
                        alert.alertImage.image = image
                        alert.alertTitle.text = "CHEST"
-                       alert.alertSubtitle.text = "You found a chest!"
+                       alert.alertSubtitle.text = "You found a shield!"
                        present(alert, animated: true)
                 }
              }

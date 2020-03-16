@@ -47,7 +47,8 @@ protocol GameDelegate: class {
   func encounteredMonster(monster: Monster)
   func encounteredNPC(npc: NPC)
   func enteredStore(store: Store)
-  func enteredCave(cave: Cave)
+  func enteredCave(cave: Cave) //added
+  func encounteredEnd(end: End) //added
 }
 
 class Game {
@@ -71,8 +72,7 @@ class Game {
   private func setupPOIs() {
     pointsOfInterest = [  PointOfInterest(name: "A local shop", location: CLLocation(latitude: 41.910029, longitude: -87.674211), isRegenPoint: false, encounter: Store.AppleStore,image:#imageLiteral(resourceName: "shopmap"),visited: false),
                           PointOfInterest(name: "Monster Muck", location: CLLocation(latitude: 41.924184, longitude: -87.655362), isRegenPoint: false, encounter: Monster.Cyclops,image:#imageLiteral(resourceName: "monster"),visited: false),
-                          PointOfInterest(name: "Chrono Cave", location: CLLocation(latitude: 41.910848, longitude: -87.675880), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "CAVEMAP"),visited: false),
-                          PointOfInterest(name: "A Ghost", location: CLLocation(latitude: 41.910448, longitude: -87.674826), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "ghost"),visited: false),]
+                          PointOfInterest(name: "Chrono Cave", location: CLLocation(latitude: 41.910848, longitude: -87.675880), isRegenPoint: true, encounter: Cave.Chrono,image:#imageLiteral(resourceName: "CAVEMAP"),visited: false),]
     
   }
 
@@ -129,7 +129,8 @@ class Game {
       delegate?.enteredStore(store: store)
     case let cave as Cave:
       delegate?.enteredCave(cave: cave)
-      
+    case let end as End:
+      delegate?.encounteredEnd(end: end)
     default:
       break
     }
@@ -220,6 +221,8 @@ extension Game {
     switch item.name {
     case Weapon.Sword6Plus.name:
       return UIImage(named: "sword")
+    case Weapon.Shield.name:
+      return UIImage(named: "shield")
     default:
       return nil
     }

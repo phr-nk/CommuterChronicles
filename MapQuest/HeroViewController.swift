@@ -72,4 +72,5 @@ extension HeroViewController: UICollectionViewDataSource {
 
     return cell
   }
+  
 }

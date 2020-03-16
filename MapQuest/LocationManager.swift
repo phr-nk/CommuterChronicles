@@ -39,6 +39,8 @@ extension LocationManager: CLLocationManagerDelegate {
         case .restricted            : print("restricted")           // TODO: handle
         case .denied                : print("denied")               // TODO: handle
 
+        @unknown default:
+          return
       }
     }
 }
