@@ -1,8 +1,6 @@
 # CommuterChronicles
 
 
-![AppIcon](https://github.com/phr-nk/CommuterChronicles/blob/master/MapQuest/Assets.xcassets/AppIcon.appiconset/1024.png)
-
 
 Project Description: 
 
